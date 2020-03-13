@@ -66,34 +66,34 @@ http://www.slf4j.org/download.html
 
 Add ojdbc6.jar, slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar files to the jars/ directory.
 
-src/
-├── net
-│   └── java_school
-│       └── bank
-│            ├── Account.java
-│            ├── Bank.java
-│            ├── BankDao.java
-│            ├── BankUi.java
-│            ├── ShinhanBank.java
-│            ├── ShinhanBankDao.java
-│            └── Transaction.java
-├── simplelogger.properties
-jars/
-├── ojdbc6.jar
-├── slf4j-api-1.7.30.jar
-└── slf4j-simple-1.7.30.jar
+    src/
+    ├── net
+    │   └── java_school
+    │       └── bank
+    │            ├── Account.java
+    │            ├── Bank.java
+    │            ├── BankDao.java
+    │            ├── BankUi.java
+    │            ├── ShinhanBank.java
+    │            ├── ShinhanBankDao.java
+    │            └── Transaction.java
+    ├── simplelogger.properties
+    jars/
+    ├── ojdbc6.jar
+    ├── slf4j-api-1.7.30.jar
+    └── slf4j-simple-1.7.30.jar
 
 ### Compile
 
-CP=jars/slf4j-api-1.7.30.jar
-CP+=:jars/slf4j-simple-1.7.30.jar
-javac -cp $CP -d out -sourcepath src $(find src -name "*.java")
+    CP=jars/slf4j-api-1.7.30.jar
+    CP+=:jars/slf4j-simple-1.7.30.jar
+    javac -cp $CP -d out -sourcepath src $(find src -name "*.java")
 
 ### Copy properties to out directory
 
-cp src/simplelogger.properties out/
+    cp src/simplelogger.properties out/
 
 ### Run
 
-CP+=:jars/ojdbc6.jar
-java -cp $CP:out net.java_school.bank.BankUi
+    CP+=:jars/ojdbc6.jar
+    java -cp $CP:out net.java_school.bank.BankUi
