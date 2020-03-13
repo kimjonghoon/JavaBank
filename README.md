@@ -58,10 +58,10 @@ Create a trigger that accumulates data in the transaction history table whenever
 	/
 
 ### Have to do
-Download the Oracle JDBC driver(ojdbc6.jar) from the link below.
+Download the Oracle JDBC driver(ojdbc6.jar) from the 
 https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html#license-lightbox
 
-Download the latest slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar from the link below.
+Download the latest slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar from the
 http://www.slf4j.org/download.html
 
 Add ojdbc6.jar, slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar files to the jars/ directory.
