@@ -2,7 +2,7 @@
 
 ### Database Design
 
-Connect to soctt account with SQL*PLUS and create the following table.
+Connect to soctt account with SQL*PLUS and create the following tables.
 
 	create table bankaccount (
 		accountno varchar2(50),
@@ -58,7 +58,42 @@ Create a trigger that accumulates data in the transaction history table whenever
 	/
 
 ### Have to do
-Add the logging library and the Oracle JDBC driver to your classpath.
-Download the latest distribution from the following address: http://www.slf4j.org/download.html
-After unpacking, add the slf4j-api-1.7.25.jar and slf4j-simple-1.7.25.jar files to the classpath.
+Download the Oracle JDBC driver(ojdbc6.jar) from the link below.
+https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html#license-lightbox
 
+Download the latest slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar from the link below.
+http://www.slf4j.org/download.html
+
+Add ojdbc6.jar, slf4j-api-x.x.xx.jar and slf4j-simple-x.x.xx.jar files to the jars/ directory.
+
+src/
+├── net
+│   └── java_school
+│       └── bank
+│            ├── Account.java
+│            ├── Bank.java
+│            ├── BankDao.java
+│            ├── BankUi.java
+│            ├── ShinhanBank.java
+│            ├── ShinhanBankDao.java
+│            └── Transaction.java
+├── simplelogger.properties
+jars/
+├── ojdbc6.jar
+├── slf4j-api-1.7.30.jar
+└── slf4j-simple-1.7.30.jar
+
+### Compile
+
+CP=jars/slf4j-api-1.7.30.jar
+CP+=:jars/slf4j-simple-1.7.30.jar
+javac -cp $CP -d out -sourcepath src $(find src -name "*.java")
+
+### Copy properties to out directory
+
+cp src/simplelogger.properties out/
+
+### Run
+
+CP+=:jars/ojdbc6.jar
+java -cp $CP:out net.java_school.bank.BankUi
