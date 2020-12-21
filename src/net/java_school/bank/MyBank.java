@@ -3,9 +3,9 @@ package net.java_school.bank;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class ShinhanBank implements Bank {
+public class MyBank implements Bank {
 
-	private BankDao dao = new ShinhanBankDao();
+	private BankDao dao = new MyBankDao();
 
 	@Override    
 	public void addAccount(String accountNo, String name, String kind) {

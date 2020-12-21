@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BankUi {
 
-	private Bank bank = new ShinhanBank();
+	private Bank bank = new MyBank();
 
 	private String readCommandLine() throws IOException {
 		InputStreamReader isr = new InputStreamReader(System.in);

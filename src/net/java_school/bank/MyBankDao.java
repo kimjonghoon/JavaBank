@@ -11,14 +11,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ShinhanBankDao implements BankDao {
-	Logger logger = LoggerFactory.getLogger(ShinhanBankDao.class);
+public class MyBankDao implements BankDao {
+	Logger logger = LoggerFactory.getLogger(MyBankDao.class);
 
 	static final String URL = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 	static final String USER = "scott";
 	static final String PASSWORD = "tiger";
 
-	public ShinhanBankDao() {
+	public MyBankDao() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
