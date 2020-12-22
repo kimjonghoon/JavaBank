@@ -98,7 +98,7 @@ public class MyBankDao implements BankDao {
 				account = new Account();
 				account.setAccountNo(rs.getString("accountNo"));
 				account.setName(rs.getString("owner"));
-				account.setBalance(rs.getLong("balance"));
+				account.setBalance(rs.getDouble("balance"));
 				account.setKind(rs.getString("kind"));
 
 				return account;
@@ -136,7 +136,7 @@ public class MyBankDao implements BankDao {
 				account = new Account();
 				account.setAccountNo(rs.getString("accountNo"));
 				account.setName(rs.getString("owner"));
-				account.setBalance(rs.getLong("balance"));
+				account.setBalance(rs.getDouble("balance"));
 				account.setKind(rs.getString("kind"));
 				matched.add(account);
 			}
@@ -171,7 +171,7 @@ public class MyBankDao implements BankDao {
 				account = new Account();
 				account.setAccountNo(rs.getString("accountNo"));
 				account.setName(rs.getString("owner"));
-				account.setBalance(rs.getLong("balance"));
+				account.setBalance(rs.getDouble("balance"));
 				account.setKind(rs.getString("kind"));
 				all.add(account);
 			}
@@ -186,7 +186,7 @@ public class MyBankDao implements BankDao {
 	}
 
 	@Override
-	public void deposit(String accountNo, long amount) {
+	public void deposit(String accountNo, double amount) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -197,7 +197,7 @@ public class MyBankDao implements BankDao {
 		try {
 			con = getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setLong(1, amount);
+			pstmt.setDouble(1, amount);
 			pstmt.setString(2, accountNo);
 			pstmt.executeUpdate();
 
@@ -213,7 +213,7 @@ public class MyBankDao implements BankDao {
 	}
 
 	@Override
-	public void withdraw(String accountNo, long amount) {
+	public void withdraw(String accountNo, double amount) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -224,7 +224,7 @@ public class MyBankDao implements BankDao {
 		try {
 			con = getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setLong(1, amount);
+			pstmt.setDouble(1, amount);
 			pstmt.setString(2, accountNo);
 			pstmt.executeUpdate();
 
@@ -266,8 +266,8 @@ public class MyBankDao implements BankDao {
 				transaction.setTransactionDate(date);
 				transaction.setTransactionTime(time);
 				transaction.setKind(rs.getString("kind"));
-				transaction.setAmount(rs.getLong("amount"));
-				transaction.setBalance(rs.getLong("balance"));
+				transaction.setAmount(rs.getDouble("amount"));
+				transaction.setBalance(rs.getDouble("balance"));
 				all.add(transaction);
 			}
 		} catch (SQLException e) {

@@ -37,7 +37,7 @@ public class BankUi {
 				String accountNo = null;
 				String name = null;
 				String kind = null;
-				long amount = 0;
+				double amount = 0;
 
 				if (menu.equals("1")) {
 					//New Account registration
@@ -47,15 +47,10 @@ public class BankUi {
 					name = this.readCommandLine();
 					System.out.print("Please select an account kind. noraml (n), minus (m): normal (n) : : ");
 					kind = this.readCommandLine();
-					if (kind.equals("") || kind.equals("n") || kind.equals("m")) {
-						if (kind.equals("")) {
-							kind = Account.NORMAL;
-						} else if (kind.equals("n")) {
-							kind = Account.NORMAL;
-						} else {
-							kind = Account.MINUS;
-						}
-						bank.addAccount(accountNo, name, kind);
+					if (kind != null && kind.equals("m")) {
+						bank.addAccount(accountNo, name, Account.MINUS);						
+					} else {
+						bank.addAccount(accountNo, name, Account.NORMAL);
 					}
 
 				} else if (menu.equals("2")) {

@@ -28,17 +28,17 @@ public class MyBank implements Bank {
 	}
 
 	@Override
-	public void deposit(String accountNo, long amount) {
+	public void deposit(String accountNo, double amount) {
 		dao.deposit(accountNo, amount);
 	}
 
 	@Override
-	public void withdraw(String accountNo, long amount) {
+	public void withdraw(String accountNo, double amount) {
 		dao.withdraw(accountNo, amount);
 	}
 
 	@Override
-	public void transfer(String from, String to, long amount) {
+	public void transfer(String from, String to, double amount) {
 		dao.withdraw(from, amount);
 		dao.deposit(to, amount);
 	}

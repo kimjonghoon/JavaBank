@@ -8,16 +8,16 @@ public class Transaction implements Serializable {
 	private String transactionDate;
 	private String transactionTime;
 	private String kind;
-	private long amount;
-	private long balance;
+	private double amount;
+	private double balance;
 
 	public Transaction() {}
 
 	public Transaction(String transactionDate,
 			String transactionTime,
 			String kind,
-			long amount,
-			long balance) {
+			double amount,
+			double balance) {
 
 		this.transactionDate = transactionDate;
 		this.transactionTime = transactionTime;        
@@ -44,31 +44,31 @@ public class Transaction implements Serializable {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public long getBalance() {
+	public double getBalance() {
 		return balance;
 	}
-	public void setBalance(long balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.transactionDate);
+		sb.append(transactionDate);
 		sb.append("|");
-		sb.append(this.transactionTime);
+		sb.append(transactionTime);
 		sb.append("|");
-		sb.append(this.kind);
+		sb.append(kind);
 		sb.append("|");
-		sb.append(this.amount);
+		sb.append(amount);
 		sb.append("|");
-		sb.append(this.balance);
+		sb.append(balance);
 
 		return sb.toString();
 	}
